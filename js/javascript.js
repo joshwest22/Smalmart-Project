@@ -21,4 +21,4 @@ fetch('https://fakestoreapi.com/products')
             })
 
             .then(data => console.log(data));
-//setTitle("Welcome to Smalmart!"); //Set title once API loaded
+setTitle("Welcome to Smalmart!"); //Set title once API loaded
