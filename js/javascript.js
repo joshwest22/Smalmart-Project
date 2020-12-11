@@ -11,7 +11,7 @@ fetch('https://fakestoreapi.com/products')
                 if (response.ok) 
                 {
                     console.log("FETCH SUCCESS");
-                    //return response.json();
+                    return response.json();
                     //maybe put a function call here that updates all the data related parts of the webpage
                 } 
                 else 
