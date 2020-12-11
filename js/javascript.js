@@ -11,6 +11,7 @@ fetch('https://fakestoreapi.com/products')
                 if (response.ok) 
                 {
                     console.log("FETCH SUCCESS");
+                    setTitle("Welcome to Smalmart!"); //Set title once API loaded
                     return response.json();
                     //maybe put a function call here that updates all the data related parts of the webpage
                 } 
@@ -21,4 +22,3 @@ fetch('https://fakestoreapi.com/products')
             })
 
             .then(data => console.log(data));
-setTitle("Welcome to Smalmart!"); //Set title once API loaded
