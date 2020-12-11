@@ -26,3 +26,5 @@ fetch('https://fakestoreapi.com/products')
 d3.select('body')
 .append('div')
 .text('THIS CREATED TEXT');
+
+setTitle("Does this work?");
