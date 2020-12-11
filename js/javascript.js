@@ -22,3 +22,7 @@ fetch('https://fakestoreapi.com/products')
             })
 
             .then(data => console.log(data));
+
+d3.select('body')
+.append('div')
+.text('THIS CREATED TEXT');
