@@ -1,4 +1,4 @@
-var setTitle = function (message)
+var setTitle = function(message)
 {
     d3.select("#title")
     .text(message)
@@ -21,10 +21,43 @@ fetch('https://fakestoreapi.com/products')
                 }
             })
 
-            .then(data => console.log(data));
+            .then(data => console.log(data));          
+d3.select('body')
+.append('div')
+.text('Navigation Bar')
+.attr('id','navigation');
 
 d3.select('body')
 .append('div')
-.text('THIS CREATED TEXT');
+.append('h3')
+.text('Products')
+.attr('id','productsHeading');
 
-setTitle("Does this work?");
+var dataPromise = d3.json("https://fakestoreapi.com/products");
+dataPromise.then(
+    function(products)
+    {
+        d3.select('body')
+        .append('div')
+        .text(products[0].title)
+        .attr('id','product1');
+
+        d3.select('#productsHeading')
+        .selectAll("li")
+        .data(dataPromise)
+        .enter()
+        .append("span")
+        .attr("id", "products")
+        .append("ul")
+        .append("li")
+        .attr("id", "productName")
+        .text(function(products)
+        {
+            var i;
+            for (i=0;i<21;i++)
+            {
+                return products[i].title;
+            }
+        })
+    }
+)
