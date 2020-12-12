@@ -25,7 +25,8 @@ fetch('https://fakestoreapi.com/products')
 d3.select('body')
 .append('div')
 .text('Navigation Bar')
-.attr('id','navigation');
+.attr('id','navigation')
+.attr('style','font-size: 28')
 
 d3.select('body')
 .append('div')
@@ -33,6 +34,15 @@ d3.select('body')
 .text('Products')
 .attr('id','productsHeading');
 
+class Product //in case we ever need it
+{
+    constructor(id,title,category)
+    {
+        this.id = id;
+        this.title = title;
+        this.category = category;
+    }
+}
 var dataPromise = d3.json("https://fakestoreapi.com/products");
 dataPromise.then(
     function(products)
@@ -41,21 +51,21 @@ dataPromise.then(
         .append('div')
         .text(products[0].title)
         .attr('id','product1');
-
+       
         d3.select('#productsHeading')
-        .selectAll("li")
-        .data(dataPromise)
+        .selectAll('li')
+        .data(products)
         .enter()
-        .append("span")
-        .attr("id", "products")
+        .append("div")
         .append("ul")
         .append("li")
         .attr("id", "productName")
-        .text(function(products)
+        .text(function(product) //why won't this iterate?!
         {
             var i;
-            for (i=0;i<21;i++)
+            for (i = 0; i < 20; i++)
             {
+                console.log('i',i);
                 return products[i].title;
             }
         })
