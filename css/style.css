@@ -4,5 +4,5 @@ h1
 }
 body
 {
-    background-color: #4070FF;
+    background-image: linear-gradient(to bottom right, #4070FF, rgba(44,18,116,0.6));
 }
